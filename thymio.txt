@@ -73,8 +73,8 @@ onevent buttons
 			motor.left.target = 0
 			motor.right.target = 0
 		end
-		end
-		button.center = 0
+    end
+    button.center = 0
 	if  button.backward== 1
 	then
 		motor.right.target = 500
