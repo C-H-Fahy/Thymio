@@ -25,7 +25,7 @@ onevent prox
 				if prox.ground.reflected[0] < 860 or prox.ground.reflected[1] < 860
 				then
 					#reset/enable wander timer for 5s
-					timer.period[1] = 5
+					timer.period[1] = 5000
 					#Follow line
 					callsub linehold
 				end
