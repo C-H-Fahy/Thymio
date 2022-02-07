@@ -57,22 +57,19 @@ onevent timer0
 	if timeflag == 2 then
 		timeflag = 0
 	end
+	timer.period[0] = 0
 
 onevent timer1
 	callsub wander
 
 onevent buttons
 	if  button.center == 1
-	 then
-	 	if  timeflag == 3 then
-			timeflag = 0
-			callsub wander
-		end
-		if  timeflag != 3 then
-			timeflag = 3
-			motor.left.target = 0
-			motor.right.target = 0
-		end
+    then
+        timeflag = 3
+        motor.left.target = 0
+        motor.right.target = 0
+        timer.period[1] = 0
+        button.center = 0
     end
     button.center = 0
 	if  button.backward== 1
@@ -81,4 +78,13 @@ onevent buttons
 		motor.left.target = 0
 		timeflag = 2
 		timer.period[0] = 2000
+		button.backward = 0
 	end
+	if  button.forward == 1
+	then
+		timeflag = 0
+		callsub wander
+		button.forward = 0
+
+	end
+
